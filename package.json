@@ -1,0 +1,15 @@
+{
+  "name": "npm-build-tool",
+  "version": "1.0.0",
+  "description": "A tool to generate file size for a react library",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "react",
+    "file"
+  ],
+  "author": "Jon Laz <jonathan.lazarini@wanadoo.fr>",
+  "license": "MIT"
+}
