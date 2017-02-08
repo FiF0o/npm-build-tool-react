@@ -74,5 +74,8 @@
     ],
     "cache": true,
     "all": true
+  },
+  "dependencies": {
+    "express": "4.14.1"
   }
 }
