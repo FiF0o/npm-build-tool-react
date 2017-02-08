@@ -1,5 +1,19 @@
-.idea
-other.txt
+# Cache
 .eslintcache
+
+# Node
 npm-debug.log
 node_modules
+
+# Local development
+*.env
+*.dev
+.DS_Store
+
+# Docker
+Dockerfile
+docker-compose.yml
+
+# Other
+.idea
+other.txt
