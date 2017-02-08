@@ -1,1 +1,4 @@
 .idea
+other.txt
+.eslintcache
+npm-debug.log

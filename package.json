@@ -4,12 +4,74 @@
   "description": "A tool to generate file size for a react library",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "list-env-var": "npm run env",
+    "start": "node app.js",
+    "prebuild": "rimraf dist && mkdir dist",
+    "build": "npm-run-all build:*",
+    "build:main": "echo 'MAIN BUILD SCRIPT'",
+    "lint": "npm-run-all lint:**",
+    "lint:js": "eslint --cache --fix ./",
+    "lint:style": "stylelint './src/scss/**/*.scss' --synthax scss",
+    "style:format": "stylefmt -R src/scss/",
+    "pretest": "npm run lint",
+    "test": "mocha --require babel-register",
+    "test:unit": "npm t -- --watch",
+    "test:all": "npm-run-all --parallel test && wait",
+    "check-coverage": "nyc check-coverage --lines 95 --functions 95 --branches 95",
+    "report-coverage": "cat ./coverage/lcov.info | codecov",
+    "cover": "nyc --reporter=lcov npm t && nyc report",
+    "cover:open": "open coverage/lcov-report/index.html",
+    "prepush": "npm run lint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/FiF0o/npm-build-tool-react.git"
   },
   "keywords": [
     "react",
     "file"
   ],
   "author": "Jon Laz <jonathan.lazarini@wanadoo.fr>",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "babel-cli": "6.22.2",
+    "babel-core": "6.22.1",
+    "babel-preset-es2015": "6.22.0",
+    "babel-preset-stage-2": "6.22.0",
+    "babel-register": "6.22.0",
+    "codecov.io": "0.1.6",
+    "eslint": "3.15.0",
+    "eslint-config-airbnb": "14.1.0",
+    "eslint-plugin-import": "2.2.0",
+    "eslint-plugin-jsx-a11y": "4.0.0",
+    "eslint-plugin-mocha": "4.8.0",
+    "eslint-plugin-react": "6.9.0",
+    "jsdoc": "3.4.3",
+    "mocha": "3.2.0",
+    "npm-run-all": "4.0.1",
+    "nyc": "10.1.2",
+    "rimraf": "2.5.4",
+    "sass-lint": "1.10.2",
+    "stylefmt": "5.1.1",
+    "stylelint": "7.8.0"
+  },
+  "babel": {
+    "presets": [
+      "es2015",
+      "stage-2"
+    ]
+  },
+  "nyc": {
+    "include": [
+      "test",
+      "/**/*.test.js"
+    ],
+    "exclude": [
+      "src/**/*.spec.js",
+      "coverage",
+      "spec"
+    ],
+    "cache": true,
+    "all": true
+  }
 }
