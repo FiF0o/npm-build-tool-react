@@ -44,3 +44,29 @@ run `travis encrypt $(heroku auth:token) --add deploy.api_key` in the terminal.
 
 staging: https://staging-tool.herokuapp.com/
 production: https://npm-build-tool-react.herokuapp.com/
+
+# local webserver
+port node.env or 5000, overwrite it if needed `npm config set npm-build-tool:port <YOUR PORT>`
+npm config vars `npm config list | grep "npm-build-tool"`
+npm env var `npm run env`
+
+## Docker
+
+# Create image
+`docker login` using your Dockerhub credentials
+`docker build -t <your username>/npm-build-tool-react`
+or from your existing project if you don't want tp push it to Dockerhub
+`docker build -t <image name> .`
+
+# Run image
+`docker run -p 49160:8080 -d <your dockerhub username>/npm-build-tool-react`
+list your docker image `docker image ls`
+
+# Debug container bash shell
+`docker run -it <container id> /bin/bash`
+`docker ps` to get container ID
+run `docker ps` to kill your docker instance
+
+port container is 8080 and your machine port is 49160
+calling your app `curl -i localhost:49160`
+(if curl is needed `sudo apt-get install curl` when creating the layers/image)

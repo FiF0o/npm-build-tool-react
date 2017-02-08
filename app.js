@@ -9,13 +9,13 @@ const app = express();
 app.set('port', (process.env.PORT || 5000));
 
 app.use(express.static(`${__dirname}/dist`));
-
 app.set('views', `${__dirname}/src/views`);
-// TODO Replace with other templating engine... ejs is ugly T_T
-app.set('view engine', 'ejs');
 
-app.get('/', (request, response) => {
-  response.send('HELLO WORLD!');
+app.set('view engine', 'pug');
+
+app.get('/', (req, res) => {
+  const data = { foo: 'bar' };
+  res.render('index', { data: data.foo });
 });
 
 app.listen(app.get('port'), () => {
