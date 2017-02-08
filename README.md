@@ -44,5 +44,3 @@ run `travis encrypt $(heroku auth:token) --add deploy.api_key` in the terminal.
 
 staging: https://staging-tool.herokuapp.com/
 production: https://npm-build-tool-react.herokuapp.com/
-
-Testing PR @Heroku for Reviews workflow
