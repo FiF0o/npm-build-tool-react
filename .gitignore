@@ -11,9 +11,11 @@ node_modules
 .DS_Store
 
 # Docker
-Dockerfile
 docker-compose.yml
 
 # Other
 .idea
 other.txt
+
+# Build
+dist
