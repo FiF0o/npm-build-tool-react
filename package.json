@@ -8,6 +8,7 @@
   },
   "scripts": {
     "list-env-var": "npm run env",
+    "postinstall": "echo 'post install script'",
     "prestart": "echo 'PRE START SCRIPT'",
     "//": "//TODO Add Task for production",
     "start": "#:zap Running the app \n\t npm run build && npm run server:create",
@@ -36,7 +37,10 @@
     "report-coverage": "cat ./coverage/lcov.info | codecov",
     "cover": "nyc --reporter=lcov npm t && nyc report",
     "cover:open": "opn coverage/lcov-report/index.html",
-    "prepush": "npm run lint"
+    "prepush": "npm run lint",
+    "//": " ******** HEROKU SECTION ******** ",
+    "heroku-prebuild": "echo This runs before Heroku installs your dependencies.",
+    "heroku-postbuild": "echo This runs afterwards."
   },
   "repository": {
     "type": "git",

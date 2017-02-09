@@ -3,21 +3,14 @@
  */
 const express = require('express');
 const path = require('path');
-const dotenv = require('dotenv');
-const fs = require('fs');
 
+require('dotenv').config();
 const app = express();
-
 
 // Grab npm_package_version env var from npm when running server script
 const PKG_VERSION = process.env.PKG_VERSION;
 
-dotenv.load();
-// Writes .env file from .sample-env
-fs.createReadStream('.sample-env')
-    .pipe(fs.createWriteStream('.env'));
-
-console.log(path.join(__dirname, `/dist/${PKG_VERSION}`));
+console.log(process.env)
 
 app.set('port', (process.env.PORT || 5000));
 

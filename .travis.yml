@@ -18,10 +18,10 @@ deploy:
   api_key:
     secure: RqSPX+J+0Sz8+aOrxjG3nVTRUYRvyq5iq12YOVGSdsTGRLzHm7Hy0u9z3jGvjV4BkooY/GjcLMqg9GRGdrNKZ6pN46p56RrIrsVbScftdx3VE7wpHuA3LWhO3FrN8aSxmEq4/XOqaV3MicKy/iCiMZ7Nq+UABzn+iEUHxLrDPnidkopOltqImRYzXouX08zb562oKukrcXoD0fLOk2mRDSUGDvsIw703ysK0EsyVekDAK6wxvUa1l+wYCv1Bvvdp1jyhBtDIVTutBt/cGeq4ecJqdbTxJ63k4facaK5PQOhmcqbl7BKvK9lWqEFHntpktzq21Rj2H12WcngTwiA+gPisVo7Ti8gqxtcTfRSdTXBwP0im3zHvsYZ9SiVJlzKF/lYpSqxqHchrE00DxSPetPZiv/sihPTH0IBfPgHBGNGXV8czrcjcnIZ6VbNDnpeBuEeJ3rYXtxTbkFXCtBznkHDv21fUhXHXhBQF2V4XKVZdJoop6vP1KXK6gRUWyVMdEYrUCLbYcIxUTq2bSygAcNTcOAdWPgVGr9US8xLKx0Ewfl6uGHSZRhLgN0KTNgXuls+q4pX0fa2eD40AsDX7XVwXHywSEdgeYidTT7sIKtNSBljIJuPjbKuu7In6c04DQsTX7sDZyO/dcTjnmVLSrMABHC+HZW/8/Lxu6bWT8ec=
 before_script:
-- npm prune
+  - npm prune
 script:
-- npm run cover
-- npm run check-coverage
-- npm run build
+  - npm run cover
+  - npm run check-coverage
+  - npm run build
 after_success:
-- npm run report-coverage
+  - npm run report-coverage
