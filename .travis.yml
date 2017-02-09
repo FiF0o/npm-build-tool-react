@@ -26,5 +26,6 @@ script:
 after_success:
   - npm run report-coverage
 env: # npm_package_ for process.env
-  - PKG_VERSION="1.0.0" # npm variable: npm_package_version
-  - PORT="5000" # npm variable: npm_package_config_port
+# npm variable: npm_package_version
+# npm variable: npm_package_config_port
+  - PKG_VERSION="1.0.0" PORT="5000"
