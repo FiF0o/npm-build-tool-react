@@ -26,3 +26,5 @@ app.get('/', (req, res) => {
 app.listen(app.get('port'), () => {
   console.log('Node app is running on port', app.get('port'));
 });
+
+// removed travis CI checking when deploying to heroku to bypass Travis
