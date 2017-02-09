@@ -8,8 +8,8 @@
   },
   "scripts": {
     "list-env-var": "npm run env",
-    "start": "npm run build && node app.js",
-    "poststart": "npm run build && npm run",
+    "//": "Run, Build and Serve the app",
+    "start": "#:zap Running the app \n\t npm run build && node app.js",
     "server:dev": "nodemon app.js",
     "server:create": "cross-var http-server dist/$npm_package_config_port -p $npm_package_config_port",
     "server:launch": "opn http://localhost:$npm_package_config_port/",
@@ -71,6 +71,7 @@
     "npm-run-all": "4.0.1",
     "nyc": "10.1.2",
     "onchange": "3.2.1",
+    "opn-cli": "3.1.0",
     "postcss-cli": "2.6.0",
     "pug": "2.0.0-beta11",
     "pug-cli": "1.0.0-alpha6",
