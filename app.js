@@ -5,12 +5,13 @@ const express = require('express');
 const path = require('path');
 
 require('dotenv').config();
+
 const app = express();
 
 // Grab npm_package_version env var from npm when running server script
 const PKG_VERSION = process.env.PKG_VERSION;
 
-console.log(process.env)
+console.log(process.env);
 
 app.set('port', (process.env.PORT || 5000));
 
