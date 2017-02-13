@@ -14,12 +14,12 @@
     "start": "#:zap Running the app \n\t npm run build && npm run server:create",
     "server": "echo 'Placeholder task to run `npm-run-all server:*`'",
     "server:dev": "nodemon app.js",
-    "server:create": "PKG_VERSION=$npm_package_version node app.js",
-    "server:create:db": "http-server dist/$npm_package_config_port -p $npm_package_config_port",
+    "server:create": "cross-var PKG_VERSION=$npm_package_version node app.js",
+    "server:create:db": "cross-var http-server dist/$npm_package_config_port -p $npm_package_config_port",
     "server:launch": "opn http://localhost:$npm_package_config_port/",
-    "prebuild": "rm -rf dist/$npm_package_version/ && mkdir -p dist/$npm_package_version",
+    "prebuild": "cross-var rimraf dist/$npm_package_version/ && mkdir -p dist/$npm_package_version",
     "build": "./node_modules/.bin/npm-run-all build:*",
-    "build:css": "node-sass src/scss/main.scss | postcss -c .postcssrc.json | cssmin > dist/$npm_package_version/main.min.css",
+    "build:css": "cross-var \"node-sass src/scss/main.scss | postcss -c .postcssrc.json | cssmin > dist/$npm_package_version/main.min.css\"",
     "build:js": "browserify --debug -e src/index.js --outfile dist/$npm_package_version/index.js -t [babelify]",
     "lint": "npm-run-all lint:**",
     "lint:js": "eslint --cache --fix ./",
@@ -30,7 +30,7 @@
     "watch:build": "onchange \"**/*.js\" \"**/*.scss\" \"**/*.pug\" -- npm run build",
     "watch:lint": "onchange \"**/*.js\" \"**/*.scss\" -- npm run lint",
     "watch:test": "npm t -- -w",
-    "test": "mocha --require babel-register",
+    "test": "cross-env mocha --require babel-register",
     "test:all": "npm-run-all --parallel lint test && wait",
     "check-coverage": "nyc check-coverage --lines 95 --functions 95 --branches 95",
     "report-coverage": "cat ./coverage/lcov.info | codecov",
@@ -50,8 +50,7 @@
   ],
   "author": "Jon Laz <jonathan.lazarini@wanadoo.fr>",
   "license": "MIT",
-  "devDependencies": {
-  },
+  "devDependencies": {},
   "babel": {
     "presets": [
       "es2015",
@@ -80,8 +79,10 @@
     "babelify": "7.3.0",
     "browserify": "14.0.0",
     "codecov.io": "0.1.6",
+    "cross-env": "3.1.4",
     "cross-var": "1.0.2",
     "cssmin": "0.4.3",
+    "dotenv": "4.0.0",
     "eslint": "3.15.0",
     "eslint-config-airbnb": "14.1.0",
     "eslint-plugin-import": "2.2.0",
@@ -107,7 +108,6 @@
     "sass-lint": "1.10.2",
     "stylefmt": "5.1.1",
     "stylelint": "7.8.0",
-    "uglifyjs": "2.4.10",
-    "dotenv": "4.0.0"
+    "uglifyjs": "2.4.10"
   }
 }
