@@ -48,10 +48,10 @@ production: https://npm-build-tool-react.herokuapp.com/
 # local webserver
 port node.env or 5000, overwrite it if needed `npm config set npm-build-tool:port <YOUR PORT>`
 npm config vars `npm config list | grep "npm-build-tool"`
-npm env var `npm run env`
 
 # Heroku
-heroku config:set PKG_VERSION=$npm_package_version --app npm-build-tool-react
+Set up dynamically `PKG_VERSION` npm env var to Heroku for servicing static files
+`heroku config:set PKG_VERSION=$(npm run env | grep "^npm_package_version=" | cut -d"=" -f 2) --app <YOUR-APP>`
 
 
 ## Docker
