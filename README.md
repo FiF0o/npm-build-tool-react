@@ -50,6 +50,10 @@ port node.env or 5000, overwrite it if needed `npm config set npm-build-tool:por
 npm config vars `npm config list | grep "npm-build-tool"`
 npm env var `npm run env`
 
+# Heroku
+heroku config:set PKG_VERSION=$npm_package_version --app npm-build-tool-react
+
+
 ## Docker
 
 # Create image
@@ -70,3 +74,4 @@ run `docker ps` to kill your docker instance
 port container is 8080 and your machine port is 49160
 calling your app `curl -i localhost:49160`
 (if curl is needed `sudo apt-get install curl` when creating the layers/image)
+
