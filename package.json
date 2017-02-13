@@ -110,6 +110,7 @@
   },
   "dependencies": {
     "dotenv": "4.0.0",
-    "express": "4.14.1"
+    "express": "4.14.1",
+    "npm-run-all": "4.0.1"
   }
 }
