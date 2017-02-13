@@ -20,3 +20,6 @@ other.txt
 
 # Build
 dist
+
+coverage
+.nyc_output
