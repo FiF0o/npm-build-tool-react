@@ -52,7 +52,7 @@ npm config vars `npm config list | grep "npm-build-tool"`
 # Heroku
 Set up dynamically `PKG_VERSION` npm env var to Heroku for servicing static files
 `heroku config:set PKG_VERSION=$(npm run env | grep "^npm_package_version=" | cut -d"=" -f 2) --app <YOUR-APP>`
-
+Don't forget to do the same for as many apps as you have in your pipeline
 
 ## Docker
 
