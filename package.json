@@ -18,7 +18,7 @@
     "server:create:db": "http-server dist/$npm_package_config_port -p $npm_package_config_port",
     "server:launch": "opn http://localhost:$npm_package_config_port/",
     "prebuild": "rm -rf dist/$npm_package_version/ && mkdir -p dist/$npm_package_version",
-    "build": "npm-run-all build:*",
+    "build": "./node_modules/.bin/npm-run-all build:*",
     "build:css": "node-sass src/scss/main.scss | postcss -c .postcssrc.json | cssmin > dist/$npm_package_version/main.min.css",
     "build:js": "browserify --debug -e src/index.js --outfile dist/$npm_package_version/index.js -t [babelify]",
     "lint": "npm-run-all lint:**",
